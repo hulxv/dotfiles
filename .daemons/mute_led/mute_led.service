@@ -1,0 +1,10 @@
+[Unit]
+Description=Mic Mute LED Daemon
+After=alsa-card.service
+
+[Service]
+Type=simple
+ExecStart="/home/mohamed/.daemons/mute_led/mute_led.sh"
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target

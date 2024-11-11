@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+if ! [ -x "$(command -v pamixer)" ]; then
+  notify-send "pamixer not found"
+  exit 1
+fi
+
+pamixer -d 5

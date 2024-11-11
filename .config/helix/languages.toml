@@ -1,0 +1,5 @@
+[[language]]
+name = "rust"
+auto-format = false
+[language-server.rust-analyzer.config.check]
+command = "clippy"

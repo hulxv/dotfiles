@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+BROWSER=vivaldi
+yt-dlp $1 --cookies-from-browser $BROWSER	--output '$HOME/Videos/yt-dlp/%(extractor)s/%(title)s-%(resolution)s-%(id)s-f%(format_id)s.%(ext)s'
+	
