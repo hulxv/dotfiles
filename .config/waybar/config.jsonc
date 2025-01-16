@@ -1,0 +1,187 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 35,
+    "margin-bottom": 3,
+    "margin-top": 2,
+    "modules-left": [
+        "cpu",
+        "memory",
+        "disk#root",
+        "disk#home",
+        "network",
+        "temperature",
+        "hyprland/language"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        "tray",
+        "custom/dunst",
+        "idle_inhibitor",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "backlight",
+        "battery",
+        "clock"
+    ],
+    "battery": {
+       "interval": 1,
+       "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon} {capacity}% ({power}W)",
+        "format-charging": "{capacity}% (Charging +{power}W)",
+        "format-plugged": "{capacity}% (NOT CHARGING {power}W)",
+        "format-alt": "{icon}  {time}",
+        "format-icons": ["", "", "", "", ""],
+        "full_at": 85,
+        "on-click-right": "kitty -e 'battop'"
+    },
+    "hyprland/workspaces": {
+        "sort-by-name": true,
+        "on-click": "activate"
+    },
+    "hyprland/window": {
+        "max-length": 200,
+        "separate-outputs": true
+    },
+    "hyprland/mode": {
+        "format": "<span style=\"italic\">{}</span>"
+    },
+    "clock": {
+            "interval": 1,
+            "format": "  {:%I:%M:%OS %p} ",
+            "format-alt": "  {:%A, %B %d, %Y }",
+            "tooltip-format": "\n<span size='9pt' font='monospace'>{calendar}</span>",
+            "calendar": {
+                "mode"          : "year",
+                "mode-mon-col"  : 3,
+                "weeks-pos"     : "right",
+                "on-scroll"     : 1,
+                "on-click-right": "mode",
+                "format": {
+                          "months":     "<span color='#ffead3'><b>{}</b></span>",
+                          "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                          "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                          "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                          "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                          }
+            },
+            "actions":  {
+                "on-click-right": "mode",
+                "on-click-forward": "tz_up",
+                "on-click-backward": "tz_down",
+                "on-scroll-up": "shift_up",
+                "on-scroll-down": "shift_down"
+            }
+  	},
+    "cpu": {
+        "interval": 5,
+        "format": "&#8239;{usage}%",
+        "format-alt": "&#8239;{usage}%",
+        "tooltip": false,
+        "on-click": "kitty -e 'htop'"
+    },
+    "disk#root": {
+        "interval": 30,
+        "format": "/: {percentage_used}%",
+        "format-alt": "/: {percentage_used}%",
+        "unit": "GB",
+        "on-click":"kitty -e 'dua i /'"
+    },
+    "disk#home": {
+        "interval": 30,
+        "format": "/home: {percentage_used}%",
+        "unit": "GB",
+        "path":"/home",
+        "on-click":"kitty -e 'dua i /home'"
+    },
+    "memory": {
+        "interval": 5,
+        "format": " {used:0.2f}GB",
+        "format-alt": " {used:0.2f}GB",
+        "max-length": 10,
+        "tooltip": false,
+        "warning": 70,
+        "critical": 90
+    },
+    "network": {
+        "interval": 1,
+        "format-wifi": "{essid}  ↓ {bandwidthDownBytes},  ↑ {bandwidthUpBytes}",
+        "format-ethernet": "ehternet ↓ {bandwidthDownBytes}, ↑ {bandwidthUpBytes}",
+        "format-linked": " {ipaddr}",
+        "format-disconnected": "Disconnected",
+        "format-disabled": "Disabled",
+        "tooltip": true,
+        "tooltip-format": "",
+        "min-length": 6,
+        "format-alt": "IP: {ipaddr}, Strength: {signalStrength}%",
+        "on-click-right": "iwgtk"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": ["/sys/class/hwmon/hwmon2/temp1_input", "/sys/class/thermal/thermal_zone0/temp"],
+        "critical-threshold": 80,
+        "format-critical": "{temperatureC}°C ",
+        "format": "{temperatureC}°C "
+    },
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon}&#8239;{percent}%",
+        "tooltip": "Brightness: {percent}%",
+        "format-icons": [
+            "",
+            ""
+        ],
+        "on-scroll-down": "brightnessctl -c backlight set 1%-",
+        "on-scroll-up": "brightnessctl -c backlight set +1%",
+        "on-click": "brightnessctl -c backlight set 75%"
+    },
+    "hyprland/language": {
+        "format": "{short} {variant}"
+    },  
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "tooltip": true,
+        "format-muted": " Muted",
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 5 --set-limit 150 --allow-boost",
+        "on-scroll-down": "pamixer -d 5",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        }
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source":  " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 5
+    },
+    "custom/dunst": {
+        "exec": "~/.config/waybar/scripts/toggle-dunst.sh",
+        "return-type":"json",
+        "restart-interval": 1,
+        "on-click": "dunstctl set-paused toggle"
+    }
+    
+}

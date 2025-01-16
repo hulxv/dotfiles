@@ -9,14 +9,14 @@
   <property name="shortcuts-icon-size" type="string" value="THUNAR_ICON_SIZE_24"/>
   <property name="misc-image-preview-mode" type="string" value="THUNAR_IMAGE_PREVIEW_MODE_STANDALONE"/>
   <property name="last-show-hidden" type="bool" value="true"/>
-  <property name="last-sort-column" type="string" value="THUNAR_COLUMN_SIZE"/>
-  <property name="last-sort-order" type="string" value="GTK_SORT_ASCENDING"/>
+  <property name="last-sort-column" type="string" value="THUNAR_COLUMN_DATE_MODIFIED"/>
+  <property name="last-sort-order" type="string" value="GTK_SORT_DESCENDING"/>
   <property name="last-side-pane" type="string" value="ThunarShortcutsPane"/>
   <property name="last-details-view-zoom-level" type="string" value="THUNAR_ZOOM_LEVEL_38_PERCENT"/>
   <property name="last-details-view-visible-columns" type="string" value="THUNAR_COLUMN_DATE_MODIFIED,THUNAR_COLUMN_NAME,THUNAR_COLUMN_SIZE,THUNAR_COLUMN_TYPE"/>
   <property name="last-details-view-column-widths" type="string" value="50,50,189,50,50,90,50,50,708,50,50,58,50,64"/>
   <property name="last-menubar-visible" type="bool" value="true"/>
-  <property name="last-splitview-separator-position" type="int" value="773"/>
+  <property name="last-splitview-separator-position" type="int" value="622"/>
   <property name="misc-date-style" type="string" value="THUNAR_DATE_STYLE_SHORT"/>
   <property name="misc-text-beside-icons" type="bool" value="false"/>
   <property name="misc-thumbnail-draw-frames" type="bool" value="true"/>
