@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+BROWSER=firefox
+OUT_DIR=$HOME/Videos/downloads
+yt-dlp "$1" --output "${OUT_DIR}/%(extractor)s/%(playlist)s/%(playlist_autonumber)s-%(title)s.%(ext)s" --embed-subs --sub-langs "en.*" --merge-output-format mp4 --write-subs --convert-subs srt

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+conn=$(nmcli -t -f NAME,TYPE connection show --active \
+       | awk -F: '$2=="802-11-wireless"{print $1}')
+
+if nmcli connection down "$conn"; then
+  notify-send -u normal "Wi-Fi" "Disconnected from $conn"
+else
+  notify-send -u critical "Wi-Fi" "Failed to disconnect $conn"
+  exit 1
+fi
+
+# optional pause to let things settle
+# sleep 1
+
+if nmcli connection up "$conn"; then
+  notify-send -u normal "Wi-Fi" "Reconnected to $conn"
+else
+  notify-send -u critical "Wi-Fi" "Failed to reconnect $conn"
+  exit 1
+fi
