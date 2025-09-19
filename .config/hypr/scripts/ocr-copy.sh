@@ -21,7 +21,7 @@ if [ -s $text_filename ]; then
     # cat $text_filename | xclip -selection clipboard  # For X11, uncomment if using X11
 
     # Send a notification about the successful extraction
-    notify-send -t 500 "OCR Extraction" "Text extracted and copied to clipboard."
+    notify-send -t 2500 "OCR Extraction" "Text extracted and copied to clipboard."
 else
     notify-send "Text extraction failed."
 fi

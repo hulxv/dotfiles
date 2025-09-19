@@ -28,7 +28,9 @@ esac
 
 
 if [ -e $screenshot_filename ]; then
-    notify-send -t 500 -i $screenshot_filename "Grim" "Active Monitor Screenshot Saved \n $screenshot_filename"
+    notify-send -t 1000 -i $screenshot_filename "Grim" "Active Monitor Screenshot Saved \n $screenshot_filename"
+    wl-copy < $screenshot_filename
+    notify-send -t 1000 -i $screenshot_filename "Grim" "The screenshot was copied to clipboard"
 
 else
     notify-send "Couldn't take screenshot for some reason. debug it."    
