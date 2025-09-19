@@ -7,13 +7,14 @@
     "modules-left": [
         "cpu",
         "memory",
-        "disk#root",
-        "disk#home",
+        // "disk#root",
+        // "disk#home",
         "network",
         "temperature",
         "hyprland/language"
     ],
     "modules-center": [
+        // "hyprland/window".
         "hyprland/workspaces"
     ],
     "modules-right": [
@@ -38,7 +39,7 @@
         "format-alt": "{icon}  {time}",
         "format-icons": ["", "", "", "", ""],
         "full_at": 85,
-        "on-click-right": "kitty -e 'battop'"
+        "on-click-right": "$TERM -e 'battop'"
     },
     "hyprland/workspaces": {
         "sort-by-name": true,
@@ -80,24 +81,29 @@
   	},
     "cpu": {
         "interval": 5,
-        "format": "&#8239;{usage}%",
-        "format-alt": "&#8239;{usage}%",
+        "format": "&#8239; {usage}%",
+        "format-alt": "&#8239; {usage}%",
         "tooltip": false,
-        "on-click": "kitty -e 'htop'"
+        "on-click": "$TERM -e 'htop'"
     },
     "disk#root": {
         "interval": 30,
         "format": "/: {percentage_used}%",
         "format-alt": "/: {percentage_used}%",
         "unit": "GB",
-        "on-click":"kitty -e 'dua i /'"
+        "on-click":"$TERM -e 'dua i /'"
+    },
+
+    "hyprland/window": {  
+    "format": "{}"   // <--- these is the default value  
+    // "format": "<span font='9' rise='-4444'>{}</span>"  
     },
     "disk#home": {
         "interval": 30,
         "format": "/home: {percentage_used}%",
         "unit": "GB",
         "path":"/home",
-        "on-click":"kitty -e 'dua i /home'"
+        "on-click":"$TERM -e 'dua i /home'"
     },
     "memory": {
         "interval": 5,
