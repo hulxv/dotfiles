@@ -3,12 +3,12 @@ export PATH=$HOME/bin:/usr/local/bin:$HOME/.cargo/bin:$HOME/.scripts:$HOME/.loca
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 export LD_LIBRARY_PATH=/usr/local/lib
-
+export HISTTIMEFORMAT="%F %T "
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="jonathan"
+ZSH_THEME="af-magic"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -94,7 +94,7 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='helix'
+  export EDITOR='nvim'
 fi
 
 # Compilation flags
@@ -111,7 +111,7 @@ alias c="clear"
 alias ohmyzsh="$EDITOR ~/.oh-my-zsh"
 alias hx="helix"
 alias hyprc="ranger ~/.config/hypr"
-
+alias ff="fastfetch"
 alias ls=eza # Use `eza` instead of `ls`
 alias code="codium"
 alias vs="codium"
@@ -127,7 +127,9 @@ alias reloadd="sudo systemctl reload"
 alias pm-browse="pacman -Qq | fzf --preview 'pacman -Qil {}' --layout=reverse --bind 'enter:execute(pacman -Qil {} | less)'"
 alias pm-deps="pacman -Qi"
 alias pm-orphans="pacman -Qdtq"
-
+alias pm-in="sudo pacman -Sy"
+alias pm-un="sudo pacman -R"
+alias pm-up="sudo pacman -Syu"
 # pnpm
 export PNPM_HOME="/home/mohamed/.local/share/pnpm"
 case ":$PATH:" in
@@ -135,3 +137,19 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# bun completions
+[ -s "/home/mohamed/.bun/_bun" ] && source "/home/mohamed/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+eval "$(~/.rbenv/bin/rbenv init - bash)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
