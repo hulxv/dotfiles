@@ -10,7 +10,7 @@
 
 .+~          # emacs backup files
 \#.*\#       # emacs autosave files
-
+.zcompdump-*
 ^/README.*
 ^/LICENSE.*
 ^/COPYING
