@@ -1,5 +1,5 @@
 * {
-    font-family: JetBrainsMono;
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", JetBrainsMono;
     font-size: 12px;
     min-height: 0;
     color: #c9c6c6;
@@ -64,20 +64,21 @@ window#waybar {
 }
 
 #battery.warning {
-    color: #e6b917;
+    background-color: #e6b917;
+    color: #181818;
     padding: 0 10px;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     margin: 0 4px;
-    background-color: #181818;
 }
 
 #battery.critical {
-    color: #c31123;
+    background-color: #c31123;
+    color: #181818;
     padding: 0 10px;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     margin: 0 4px;
-    background-color: #181818;
 }
 #battery.charging {
-    color: #34A853;
+    background-color: #34A853;
+    color: #181818;
 }
